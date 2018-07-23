@@ -8,9 +8,6 @@ FROM alpine:3.7
 # ENV VERSION=v10.7.0 NPM_VERSION=6 YARN_VERSION=latest
 ENV VERSION=v0.10.48 NPM_VERSION=2 CFLAGS="-D__USE_MISC"
 
-# For base builds
-ENV CONFIG_FLAGS="--without-npm" DEL_PKGS="libstdc++" RM_DIRS=/usr/include
-
 RUN apk add --no-cache curl make gcc g++ python linux-headers binutils-gold gnupg libstdc++ && \
   for server in ipv4.pool.sks-keyservers.net keyserver.pgp.com ha.pool.sks-keyservers.net; do \
     gpg --keyserver $server --recv-keys \
